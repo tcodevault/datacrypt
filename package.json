@@ -1,0 +1,19 @@
+{
+  "name": "datacrypt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "encode": "node encode.js",
+    "decode": "node decode.js",
+    "cli": "node cli.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "readline-sync": "^1.4.10"
+  }
+}
