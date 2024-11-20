@@ -1,8 +1,11 @@
 const fs = require("fs");
+const path = require("path");
 const fsPromise = require("fs/promises");
 const archiver = require("archiver");
 const crypto = require("crypto");
 const cli = require("./cli");
+
+require('dotenv').config()
 
 async function encode() {
   const config = cli.readEncodeParams(true);
@@ -26,7 +29,8 @@ async function encode() {
   }
 
   const fileTree = await readDir(config.fullpath, config.ignore);
-  const output = fs.createWriteStream("./temp/encoded");
+  const outputPath = path.resolve(config.destFolder, "encoded");
+  const output = fs.createWriteStream(outputPath);
 
   const iv = Buffer.alloc(16, 0);
   iv.write(config.password);
